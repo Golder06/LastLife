@@ -1,0 +1,12 @@
+{
+	"powers": [
+		"lastlife:lifes/ghost"
+	],
+	"icon": {
+		"item": "minecraft:gray_wool",
+		"tag": "{CustomModelData: 1}"
+	},
+	"name": "Dead",
+	"description": "You've lost. Have fun spectating the living!",
+	"unchoosable": true
+}

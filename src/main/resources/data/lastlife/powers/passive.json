@@ -1,0 +1,90 @@
+{
+	"type": "origins:multiple",
+	"melee": {
+		"type": "origins:modify_damage_dealt",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": -1
+		},
+		"target_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:origin",
+							"origin": "lastlife:1",
+							"layer": "lastlife:lives",
+							"inverted": true
+						},
+						{
+							"type": "origins:origin",
+							"origin": "lastlife:boogey",
+							"layer": "lastlife:boogey_l",
+							"inverted": true
+						}
+					]
+				},
+				{
+					"type": "origins:entity_type",
+					"entity_type": "minecraft:player"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "lastlife:life_transfer_timer",
+					"comparison": ">",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:empty"
+					}
+				}
+			],
+			"inverted": true
+		}
+	},
+	"projectile": {
+		"type": "origins:modify_projectile_damage",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": -1
+		},
+		"target_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:origin",
+							"origin": "lastlife:1",
+							"layer": "lastlife:lives",
+							"inverted": true
+						},
+						{
+							"type": "origins:origin",
+							"origin": "lastlife:boogey",
+							"layer": "lastlife:boogey_l",
+							"inverted": true
+						}
+					]
+				},
+				{
+					"type": "origins:entity_type",
+					"entity_type": "minecraft:player"
+				}
+			]
+		}
+	},
+	"name": "Passive",
+	"description": "You can't attack anyone that isn't at 1 life or is the Boogeyman (Unless you're transfering lifes)"
+}

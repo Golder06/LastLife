@@ -1,0 +1,37 @@
+{
+	"type": "origins:action_over_time",
+	"rising_action": {
+		"type": "origins:and",
+		"actions": [
+			{
+				"type": "origins:execute_command",
+				"command": "/title @s title {\"text\": \"You have failed.\", \"color\": \"red\"}"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "/playsound lastlife:boogey_failure master @s"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "/origin set @s lastlife:lives lastlife:lifes/1"
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 40,
+				"action": {
+					"type": "origins:execute_command",
+					"command": "/tellraw @p [{\"text\":\"You failed to kill a green or yellow name last session as the boogeyman. As punishment, you have dropped to your \",\"color\":\"gray\"},{\"text\":\"Last Life\",\"color\":\"red\"},{\"text\":\". All Alliances are severed and you are now hostile to all players. You may team with others on their Last Life if you wish.\",\"color\":\"gray\"}]"
+				}
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 41,
+				"action": {
+					"type": "origins:execute_command",
+					"command": "power revoke @s lastlife:grant/punishment lastlife:punishment"
+				}
+			}
+		]
+	},
+	"interval": 1
+}

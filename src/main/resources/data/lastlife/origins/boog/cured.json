@@ -1,0 +1,12 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:air",
+		"tag": "{CustomModelData: 1}"
+	},
+	"name": "Cured",
+	"description": "You have taken a life and have been cured from the Boogeyma's Curse. You can now rest until the next session.",
+	"impact": 2,
+	"unchoosable": true
+}

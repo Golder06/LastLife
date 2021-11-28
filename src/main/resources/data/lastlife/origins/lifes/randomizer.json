@@ -1,0 +1,12 @@
+{
+	"powers": [
+		"lastlife:passive_unset",
+		"lastlife:invulnerable"
+	],
+	"icon": {
+		"item": "minecraft:purple_wool",
+		"tag": "{CustomModelData: 1}"
+	},
+	"name": "Unset",
+	"description": "The amount of lifes hasn't been set yet. Please wait until the moderator decides to starts the game (or the countdown stops)."
+}

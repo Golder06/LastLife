@@ -1,0 +1,114 @@
+{
+	"type": "origins:action_over_time",
+	"rising_action": {
+		"type": "origins:and",
+		"actions": [
+			{
+				"type": "origins:execute_command",
+				"command": "/title @s title {\"text\":\"You will have...\",\"color\":\"gray\"}"
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 72,
+				"action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:choice",
+							"actions": [
+								{
+									"element": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:execute_command",
+												"command": "origin set @s lastlife:lives lastlife:lifes/6"
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "title @s title [\"\",{\"text\":\"6 \",\"color\":\"dark_green\"},{\"text\":\"lives\",\"color\":\"green\"}]"
+											}
+										]
+									},
+									"weight": 1
+								},
+								{
+									"element": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:execute_command",
+												"command": "origin set @s lastlife:lives lastlife:lifes/5"
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "title @s title [\"\",{\"text\":\"5 \",\"color\":\"dark_green\"},{\"text\":\"lives\",\"color\":\"green\"}]"
+											}
+										]
+									},
+									"weight": 1
+								},
+								{
+									"element": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:execute_command",
+												"command": "origin set @s lastlife:lives lastlife:lifes/4"
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "title @s title [\"\",{\"text\":\"4 \",\"color\":\"dark_green\"},{\"text\":\"lives\",\"color\":\"green\"}]"
+											}
+										]
+									},
+									"weight": 1
+								},
+								{
+									"element": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:execute_command",
+												"command": "origin set @s lastlife:lives lastlife:lifes/3"
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "title @s title [\"\",{\"text\":\"3 \",\"color\":\"green\"},{\"text\":\"lives\",\"color\":\"green\"}]"
+											}
+										]
+									},
+									"weight": 1
+								},
+								{
+									"element": {
+										"type": "origins:and",
+										"actions": [
+											{
+												"type": "origins:execute_command",
+												"command": "origin set @s lastlife:lives lastlife:lifes/2"
+											},
+											{
+												"type": "origins:execute_command",
+												"command": "title @s title [\"\",{\"text\":\"2 \",\"color\":\"yellow\"},{\"text\":\"lives\",\"color\":\"green\"}]"
+											}
+										]
+									},
+									"weight": 1
+								}
+							]
+						},
+						{
+							"type": "origins:execute_command",
+							"command": "/power revoke @s lastlife:grant/actually_choose lastlife:choose",
+							"power": "*:*",
+							"source": "lastlife:choose",
+							"comment": "//kept just in case I need it."
+						}
+					]
+				}
+			}
+		]
+	},
+	"interval": 1
+}

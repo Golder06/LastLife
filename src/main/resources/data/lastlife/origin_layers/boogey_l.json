@@ -1,0 +1,14 @@
+{
+	"name": "Boogey Status",
+	"origins": [
+		"lastlife:boog/unset",
+		"lastlife:boog/boogey",
+		"lastlife:boog/not_boogey",
+		"lastlife:boog/cured"
+	],
+	"default_origin": "lastlife:boog/unset",
+	"order": 5,
+	"missing_name": "Test?",
+	"missing_description": "advancements.nether.all_effects.title",
+	"auto_choose": true
+}

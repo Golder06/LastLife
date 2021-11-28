@@ -1,0 +1,15 @@
+{
+	"powers": [
+		"lastlife:lifes/3to2",
+		"lastlife:passive",
+		"lastlife:life_transfer"
+	],
+	"icon": {
+		"item": "minecraft:lime_wool",
+		"tag": "{CustomModelData: 1}"
+	},
+	"name": "3 Lives",
+	"impact": 1,
+	"description": "Your amount of lives is practically in the middle. Good luck not getting critical =)",
+	"unchoosable": true
+}

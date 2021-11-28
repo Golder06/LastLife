@@ -1,0 +1,14 @@
+{
+	"powers": [
+		"lastlife:aggresive",
+		"lastlife:cure"
+	],
+	"icon": {
+		"item": "minecraft:iron_axe",
+		"tag": "{CustomModelData: 1}"
+	},
+	"name": "§4Boogeyman",
+	"description": "You have been cursed to be the §4§nBoogeyman. §rYou have to try to kill someone or else you will turn into a §cRed Life §rat the end of the session.",
+	"impact": 3,
+	"unchoosable": true
+}

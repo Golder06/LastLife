@@ -1,0 +1,15 @@
+{
+	"powers": [
+		"lastlife:lifes/2to1",
+		"lastlife:passive",
+		"lastlife:life_transfer"
+	],
+	"icon": {
+		"item": "minecraft:yellow_wool",
+		"tag": "{CustomModelData: 1}"
+	},
+	"name": "2 Lives",
+	"impact": 2,
+	"description": "You're in danger. Remember to stay away from Red Lifes and to try to negotiate for lifes.",
+	"unchoosable": true
+}

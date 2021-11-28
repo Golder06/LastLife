@@ -1,0 +1,7 @@
+{
+	"commands.lastlife.givelife.success": "You have successfully given a life to %s.",
+	"commands.lastlife.givelife.error.too_many_lives": "%s has the max amount of lives.",
+	"commands.lastlife.givelife.error.target_isnt_player": "%s isn't a player.",
+	"commands.lastlife.givelife.error.dead_sender": "You don't have any lives to give to %s",
+	"commands.lastlife.givelife.error.dead_target": "%s is dead, you cannot revive them."
+}

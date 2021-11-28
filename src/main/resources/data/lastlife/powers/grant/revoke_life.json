@@ -1,0 +1,77 @@
+{
+	"type": "origins:action_over_time",
+	"rising_action": {
+		"type": "origins:and",
+		"actions": [
+			{
+				"type": "origins:if_else_list",
+				"actions": [
+					{
+						"condition": {
+							"type": "origins:origin",
+							"origin": "lastlife:lifes/2",
+							"layer": "lastlife:lives"
+						},
+						"action": {
+							"type": "origins:execute_command",
+							"command": "origin set @s lastlife:lives lastlife:lifes/1"
+						}
+					},
+					{
+						"condition": {
+							"type": "origins:origin",
+							"origin": "lastlife:lifes/3",
+							"layer": "lastlife:lives"
+						},
+						"action": {
+							"type": "origins:execute_command",
+							"command": "origin set @s lastlife:lives lastlife:lifes/2"
+						}
+					},
+					{
+						"condition": {
+							"type": "origins:origin",
+							"origin": "lastlife:lifes/4",
+							"layer": "lastlife:lives"
+						},
+						"action": {
+							"type": "origins:execute_command",
+							"command": "origin set @s lastlife:lives lastlife:lifes/3"
+						}
+					},
+					{
+						"condition": {
+							"type": "origins:origin",
+							"origin": "lastlife:lifes/5",
+							"layer": "lastlife:lives"
+						},
+						"action": {
+							"type": "origins:execute_command",
+							"command": "origin set @s lastlife:lives lastlife:lifes/4"
+						}
+					},
+					{
+						"condition": {
+							"type": "origins:origin",
+							"origin": "lastlife:lifes/6",
+							"layer": "lastlife:lives"
+						},
+						"action": {
+							"type": "origins:execute_command",
+							"command": "origin set @s lastlife:lives lastlife:lifes/5"
+						}
+					}
+				]
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 20,
+				"action": {
+					"type": "origins:execute_command",
+					"command": "power revokeall @s lastlife:give_life"
+				}
+			}
+		]
+	},
+	"interval": 1
+}

@@ -1,0 +1,10 @@
+{
+	"powers": [
+	],
+	"icon": {
+		"item": "minecraft:air",
+		"tag": "{CustomModelData: 1}"
+	},
+	"name": "Unset",
+	"description": "The Boogeyman curse hasn't been set on anyone yet. Please be patient, you'll know if you are cursed soon enough ;)"
+}

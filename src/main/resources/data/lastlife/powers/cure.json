@@ -1,0 +1,19 @@
+{
+	"type": "origins:self_action_on_kill",
+	"entity_action": {
+		"type": "origins:and",
+		"actions": [
+			{
+				"type": "origins:execute_command",
+				"command": "/origin set @s lastlife:boogey_l lastlife:cured"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "title @s title {\"text\":\"You have now been Cured! :D\",\"color\":\"green\"}"
+			}
+		]
+	},
+	"cooldown": 100,
+	"name": "Cure",
+	"description": "The only way to lift the curse is to kill someone else. Good luck and remember: they can attack you back ;)"
+}

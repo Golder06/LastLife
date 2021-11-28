@@ -1,0 +1,15 @@
+{
+	"powers": [
+		"lastlife:lifes/5to4",
+		"lastlife:passive",
+		"lastlife:life_transfer"
+	],
+	"icon": {
+		"item": "minecraft:green_wool",
+		"tag": "{CustomModelData: 1}"
+	},
+	"name": "5 Lives",
+	"impact": 1,
+	"description": "You have a more than decent amount of lifes. Remember to negociate lifes!",
+	"unchoosable": true
+}

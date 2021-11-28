@@ -1,0 +1,15 @@
+{
+	"powers": [
+		"lastlife:lifes/6to5",
+		"lastlife:passive",
+		"lastlife:life_transfer"
+	],
+	"icon": {
+		"item": "minecraft:green_wool",
+		"tag": "{CustomModelData: 1}"
+	},
+	"name": "6 Lives",
+	"impact": 1,
+	"description": "You have the maximum amount of lifes. Good luck not being a big target! ;)",
+	"unchoosable": true
+}
