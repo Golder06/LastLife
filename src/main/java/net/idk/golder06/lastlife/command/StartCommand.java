@@ -8,10 +8,13 @@ import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.apoli.power.PowerTypeRegistry;
 import io.github.apace100.apoli.util.Scheduler;
 import net.minecraft.command.argument.EntityArgumentType;
+import net.minecraft.command.argument.TextArgumentType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.Packet;
+import net.minecraft.network.packet.s2c.play.SubtitleS2CPacket;
+import net.minecraft.network.packet.s2c.play.TitleS2CPacket;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.LiteralText;
@@ -37,8 +40,7 @@ public class StartCommand {
                         .executes((command) -> {
                                     final ServerCommandSource source = command.getSource();
                                     Scheduler scheduler = new Scheduler();
-
-                                    return 1;
+                                    return 1; // randomNumbersTitle(source, (Collection<ServerPlayerEntity>) source.getPlayer(), TitleS2CPacket::new);
                                 }
                         )
                 )
@@ -51,7 +53,7 @@ public class StartCommand {
         );
     }
 
-    private static int executeTitle(ServerCommandSource source, Collection<ServerPlayerEntity> targets, String title, String titleType, Function<Text, Packet<?>> constructor) throws CommandSyntaxException {
+    private static int executeTitle(ServerCommandSource source, Collection<ServerPlayerEntity> targets, String title, Function<Text, Packet<?>> constructor) throws CommandSyntaxException {
         Text newTitle = new LiteralText(title);
 
         for (ServerPlayerEntity serverPlayerEntity : targets) {
@@ -59,5 +61,19 @@ public class StartCommand {
         }
 
         return targets.size();
+    }
+
+    private static void chooseLife(ServerCommandSource source, Collection<ServerPlayerEntity> targets, Function<Text, Packet<?>> constructor) throws CommandSyntaxException {
+
+    }
+
+    private static int randomNumbersTitle(ServerCommandSource source, Collection<ServerPlayerEntity> targets, Function<Text, Packet<?>> constructor) throws CommandSyntaxException {
+        int i = 1;
+        while (i <= 73)
+            i++;
+            String title = "test";
+            executeTitle(source, targets, title, constructor);
+        chooseLife(source, targets, constructor);
+        return 1;
     }
 }

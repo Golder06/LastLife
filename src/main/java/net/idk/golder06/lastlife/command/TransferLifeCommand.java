@@ -22,14 +22,13 @@ import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
 
 public class TransferLifeCommand {
-    public static final Identifier COMMAND_POWER_SOURCE = Apoli.identifier("command");
+    // public static final Identifier COMMAND_POWER_SOURCE = Apoli.identifier("command");
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         // TODO: Actually learn to do shit.
         dispatcher.register(literal("givelife")
                 .then(argument("target", EntityArgumentType.player())
                         .executes((command) -> {
-                            System.out.println(COMMAND_POWER_SOURCE);
                             final ServerCommandSource source = command.getSource();
                             final PlayerEntity sender = source.getPlayer();
                             final PlayerEntity target = EntityArgumentType.getPlayer(command, "target");
