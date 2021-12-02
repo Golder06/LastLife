@@ -18,8 +18,6 @@ import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
 
 public class TransferLifeCommand {
-    // public static final Identifier COMMAND_POWER_SOURCE = Apoli.identifier("command");
-
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register(literal("givelife")
                 .then(argument("target", EntityArgumentType.player())
@@ -64,38 +62,18 @@ public class TransferLifeCommand {
         String targetLivesId = targetLives.getIdentifier().toString();
 
         switch (senderLivesId) {
-            case "lastlife:lifes/2": {
-                simpleSetLives(sender, "lastlife:lifes/1");
-            }
-            case "lastlife:lifes/3": {
-                simpleSetLives(sender, "lastlife:lifes/2");
-            }
-            case "lastlife:lifes/4": {
-                simpleSetLives(sender, "lastlife:lifes/3");
-            }
-            case "lastlife:lifes/5": {
-                simpleSetLives(sender, "lastlife:lifes/4");
-            }
-            case "lastlife:lifes/6": {
-                simpleSetLives(sender, "lastlife:lifes/5");
-            }
+            case "lastlife:lifes/2" -> simpleSetLives(sender, "lastlife:lifes/1");
+            case "lastlife:lifes/3" -> simpleSetLives(sender, "lastlife:lifes/2");
+            case "lastlife:lifes/4" -> simpleSetLives(sender, "lastlife:lifes/3");
+            case "lastlife:lifes/5" -> simpleSetLives(sender, "lastlife:lifes/4");
+            case "lastlife:lifes/6" -> simpleSetLives(sender, "lastlife:lifes/5");
         }
         switch (targetLivesId) {
-            case "lastlife:lifes/1": {
-                simpleSetLives(sender, "lastlife:lifes/2");
-            }
-            case "lastlife:lifes/2": {
-                simpleSetLives(sender, "lastlife:lifes/3");
-            }
-            case "lastlife:lifes/3": {
-                simpleSetLives(sender, "lastlife:lifes/4");
-            }
-            case "lastlife:lifes/4": {
-                simpleSetLives(sender, "lastlife:lifes/5");
-            }
-            case "lastlife:lifes/5": {
-                simpleSetLives(sender, "lastlife:lifes/6");
-            }
+            case "lastlife:lifes/1" -> simpleSetLives(target, "lastlife:lifes/2");
+            case "lastlife:lifes/2" -> simpleSetLives(target, "lastlife:lifes/3");
+            case "lastlife:lifes/3" -> simpleSetLives(target, "lastlife:lifes/4");
+            case "lastlife:lifes/4" -> simpleSetLives(target, "lastlife:lifes/5");
+            case "lastlife:lifes/5" -> simpleSetLives(target, "lastlife:lifes/6");
         }
     }
 
@@ -124,6 +102,8 @@ public class TransferLifeCommand {
         OriginLayer layer = OriginLayers.getLayer(new Identifier("lastlife", "lives"));
         OriginComponent component = ModComponents.ORIGIN.get(player);
         component.setOrigin(layer, lives);
-        component.sync();
+        OriginComponent.sync(player);
+        boolean hadOriginBefore = component.hadOriginBefore();
+        OriginComponent.partialOnChosen(player, hadOriginBefore, lives);
     }
 }
