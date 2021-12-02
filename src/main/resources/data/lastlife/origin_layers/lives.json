@@ -1,7 +1,6 @@
 {
 	"name": "Life Now :)",
 	"origins": [
-		"lastlife:lifes/randomizer",
 		"lastlife:lifes/6",
 		"lastlife:lifes/5",
 		"lastlife:lifes/4",
@@ -10,7 +9,7 @@
 		"lastlife:lifes/1",
 		"lastlife:lifes/death"
 	],
-	"default_origin": "lastlife:lifes/randomizer",
+	"default_origin": "lastlife:lifes/4",
 	"order": 4,
 	"missing_name": "advancements.nether.all_effects.title",
 	"missing_description": "advancements.nether.all_effects.title",

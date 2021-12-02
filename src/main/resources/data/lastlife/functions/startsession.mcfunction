@@ -3,4 +3,5 @@ tag @a remove boogey
 tag @a remove not_boogey
 
 origin set @a lastlife:boogey lastlife:boog/unset
-power grant @s lastlife:grant/boogey_cooldown lastlife:boogey_countdown
+# power grant @s lastlife:grant/boogey_cooldown lastlife:boogey_countdown
+function lastlife:whyyoulikethis/10mins

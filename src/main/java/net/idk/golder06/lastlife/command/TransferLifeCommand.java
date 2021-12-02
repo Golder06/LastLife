@@ -1,7 +1,6 @@
 package net.idk.golder06.lastlife.command;
 
 import com.mojang.brigadier.CommandDispatcher;
-import io.github.apace100.apoli.Apoli;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.origins.component.OriginComponent;
@@ -32,21 +31,31 @@ public class TransferLifeCommand {
                             final ServerCommandSource source = command.getSource();
                             final PlayerEntity sender = source.getPlayer();
                             final PlayerEntity target = EntityArgumentType.getPlayer(command, "target");
-                            if (simpleHasLife(target, "lastlife:lifes/6")) {
+                            if (sender == target) {
+                                command.getSource().sendError(new LiteralText("You can't give lives to yourself.."));
+                                return 0;
+                            } else if (simpleHasLife(target, "lastlife:lifes/6")) {
                                 command.getSource().sendError(new TranslatableText("commands.lastlife.givelife.error.too_many_lives", target.getDisplayName()));
+                                return 0;
                             } else if (simpleHasLife(sender, "lastlife:lifes/1")) {
                                 command.getSource().sendError(new LiteralText("You don't have enough lives to transfer."));
+                                return 0;
                             } else if (simpleHasLife(target, "lastlife:lifes/death")) {
                                 command.getSource().sendError(new TranslatableText("commands.lastlife.givelife.error.dead_target", target.getDisplayName()));
+                                return 0;
                             } else if (simpleHasLife(sender, "lastlife:lifes/death")) {
                                 command.getSource().sendError(new TranslatableText("commands.lastlife.givelife.error.dead_sender", target.getDisplayName()));
+                                return 0;
+                            /*
                             } else if (simpleHasLife(sender, "lastlife:lifes/randomizer")) {
                                 command.getSource().sendError(new LiteralText("The game hasn't started yet. Please wait."));
+                                return 0;
+                                */
                             } else {
                                 giveLife(sender, target);
                                 command.getSource().sendFeedback(new TranslatableText("commands.lastlife.givelife.success", target.getDisplayName()), true);
+                                return 1;
                             }
-                            return 1;
                         })
                 )
         );
@@ -114,6 +123,12 @@ public class TransferLifeCommand {
         OriginLayer layer = OriginLayers.getLayer(new Identifier("lastlife", "lives"));
         Origin origin = OriginRegistry.get(new Identifier(splitOrigin[0], splitOrigin[1]));
         return hasOrigin(player, layer, origin);
+    }
+
+    private static Origin simpleGetLives(PlayerEntity player, String originId) {
+        OriginComponent component = ModComponents.ORIGIN.get(player);
+        OriginLayer layer = OriginLayers.getLayer(new Identifier("lastlife", "lives"));
+        return component.getOrigin(layer);
     }
 
     private static boolean hasOrigin(PlayerEntity player, OriginLayer layer, Origin origin) {

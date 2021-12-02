@@ -1,8 +1,7 @@
 {
 	"powers": [
 		"lastlife:lifes/4to3",
-		"lastlife:passive",
-		"lastlife:life_transfer"
+		"lastlife:passive"
 	],
 	"icon": {
 		"item": "minecraft:green_wool",
@@ -10,6 +9,5 @@
 	},
 	"name": "4 Lives",
 	"impact": 1,
-	"description": "You have a fair amount of lifes. Good luck and remember to negotiate if you wanna live ;)",
-	"unchoosable": true
+	"description": "You have a fair amount of lifes. Good luck and remember to negotiate if you wanna live ;)"
 }

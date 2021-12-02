@@ -1,0 +1,1 @@
+power grant @s lastlife:grant/boogey_cooldown lastlife:chooseboogey

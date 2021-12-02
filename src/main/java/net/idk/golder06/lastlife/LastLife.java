@@ -8,5 +8,6 @@ public class LastLife implements ModInitializer {
     @Override
     public void onInitialize() {
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> TransferLifeCommand.register(dispatcher));
+        CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> StartCommand.register(dispatcher));
     }
 }

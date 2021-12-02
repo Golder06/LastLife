@@ -14,13 +14,13 @@
 					"conditions": [
 						{
 							"type": "origins:origin",
-							"origin": "lastlife:1",
+							"origin": "lastlife:lifes/1",
 							"layer": "lastlife:lives",
 							"inverted": true
 						},
 						{
 							"type": "origins:origin",
-							"origin": "lastlife:boogey",
+							"origin": "lastlife:boog/boogey",
 							"layer": "lastlife:boogey_l",
 							"inverted": true
 						}
@@ -31,25 +31,6 @@
 					"entity_type": "minecraft:player"
 				}
 			]
-		},
-		"condition": {
-			"type": "origins:and",
-			"conditions": [
-				{
-					"type": "origins:resource",
-					"resource": "lastlife:life_transfer_timer",
-					"comparison": ">",
-					"compare_to": 0
-				},
-				{
-					"type": "origins:equipped_item",
-					"equipment_slot": "mainhand",
-					"item_condition": {
-						"type": "origins:empty"
-					}
-				}
-			],
-			"inverted": true
 		}
 	},
 	"projectile": {

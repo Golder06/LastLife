@@ -13,6 +13,10 @@
 			}
 		]
 	},
+	"target_condition": {
+		"type": "origins:entity_type",
+		"entity_type": "minecraft:player"
+	},
 	"cooldown": 100,
 	"name": "Cure",
 	"description": "The only way to lift the curse is to kill someone else. Good luck and remember: they can attack you back ;)"

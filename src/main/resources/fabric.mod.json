@@ -25,10 +25,10 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.12.5",
+    "fabricloader": ">=0.12.6",
     "fabric": "*",
     "minecraft": "1.18.x",
     "java": ">=17",
-    "origins": ">=1.2.0-beta.2"
+    "origins": ">=1.2.0"
   }
 }

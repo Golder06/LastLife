@@ -1,8 +1,7 @@
 {
 	"powers": [
 		"lastlife:lifes/5to4",
-		"lastlife:passive",
-		"lastlife:life_transfer"
+		"lastlife:passive"
 	],
 	"icon": {
 		"item": "minecraft:green_wool",
