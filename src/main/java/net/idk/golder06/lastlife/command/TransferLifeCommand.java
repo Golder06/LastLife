@@ -21,7 +21,6 @@ public class TransferLifeCommand {
     // public static final Identifier COMMAND_POWER_SOURCE = Apoli.identifier("command");
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        // TODO: Actually learn to do shit.
         dispatcher.register(literal("givelife")
                 .then(argument("target", EntityArgumentType.player())
                         .executes((command) -> {
