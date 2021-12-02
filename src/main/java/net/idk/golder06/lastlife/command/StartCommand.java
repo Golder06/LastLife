@@ -19,7 +19,7 @@ public class StartCommand {
                 .executes((command) -> {
                     final ServerCommandSource source = command.getSource();
                     final PlayerEntity sender = source.getPlayer();
-                    PowerType<?> power = PowerTypeRegistry.get(new Identifier("lastlife", "grant/start_session"));
+                    PowerType<?> power = PowerTypeRegistry.get(new Identifier("lastlife", "grant/startsession"));
                     grantPower(sender, power);
                     return 1;
                 })
@@ -27,7 +27,7 @@ public class StartCommand {
     }
 
     private static void grantPower(LivingEntity entity, PowerType<?> power) {
-        Identifier source = new Identifier("lastlife", "give_life");
+        Identifier source = new Identifier("lastlife", "sessionstarting");
         PowerHolderComponent component = PowerHolderComponent.KEY.get(entity);
         boolean success = component.addPower(power, source);
         if (success) {

@@ -4,6 +4,11 @@
 		"type": "origins:execute_command",
 		"command": "origin set @s lastlife:lives lastlife:lifes/5"
 	},
+	"condition": {
+		"type": "origins:health",
+		"comparison": "==",
+		"compare_to": 0
+	},
 	"cooldown": 0,
 	"hidden": true
 }

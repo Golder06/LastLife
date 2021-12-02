@@ -60,8 +60,10 @@ public class TransferLifeCommand {
     private static void giveLife(PlayerEntity sender, PlayerEntity target) {
         Origin senderLives = simpleGetLives(sender);
         Origin targetLives = simpleGetLives(target);
+        String senderLivesId = senderLives.getIdentifier().toString();
+        String targetLivesId = targetLives.getIdentifier().toString();
 
-        switch (senderLives.getIdentifier().toString()) {
+        switch (senderLivesId) {
             case "lastlife:lifes/2": {
                 simpleSetLives(sender, "lastlife:lifes/1");
             }
@@ -78,7 +80,7 @@ public class TransferLifeCommand {
                 simpleSetLives(sender, "lastlife:lifes/5");
             }
         }
-        switch (targetLives.getIdentifier().toString()) {
+        switch (targetLivesId) {
             case "lastlife:lifes/1": {
                 simpleSetLives(sender, "lastlife:lifes/2");
             }
@@ -122,5 +124,6 @@ public class TransferLifeCommand {
         OriginLayer layer = OriginLayers.getLayer(new Identifier("lastlife", "lives"));
         OriginComponent component = ModComponents.ORIGIN.get(player);
         component.setOrigin(layer, lives);
+        component.sync();
     }
 }

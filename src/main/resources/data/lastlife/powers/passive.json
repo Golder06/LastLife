@@ -47,13 +47,13 @@
 					"conditions": [
 						{
 							"type": "origins:origin",
-							"origin": "lastlife:1",
+							"origin": "lastlife:lifes/1",
 							"layer": "lastlife:lives",
 							"inverted": true
 						},
 						{
 							"type": "origins:origin",
-							"origin": "lastlife:boogey",
+							"origin": "lastlife:boog/boogey",
 							"layer": "lastlife:boogey_l",
 							"inverted": true
 						}
