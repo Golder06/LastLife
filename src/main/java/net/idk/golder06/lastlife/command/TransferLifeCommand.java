@@ -1,8 +1,6 @@
 package net.idk.golder06.lastlife.command;
 
 import com.mojang.brigadier.CommandDispatcher;
-import io.github.apace100.apoli.component.PowerHolderComponent;
-import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.origins.component.OriginComponent;
 import io.github.apace100.origins.origin.Origin;
 import io.github.apace100.origins.origin.OriginLayer;
@@ -10,11 +8,10 @@ import io.github.apace100.origins.origin.OriginLayers;
 import io.github.apace100.origins.origin.OriginRegistry;
 import io.github.apace100.origins.registry.ModComponents;
 import net.minecraft.command.argument.EntityArgumentType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.text.LiteralText;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 
 import static net.minecraft.server.command.CommandManager.argument;
@@ -101,19 +98,9 @@ public class TransferLifeCommand {
         }
     }
 
-    private static boolean grantPower(LivingEntity entity, PowerType<?> power) {
-        Identifier source = new Identifier("lastlife", "give_life");
-        PowerHolderComponent component = PowerHolderComponent.KEY.get(entity);
-        boolean success = component.addPower(power, source);
-        if (success) {
-            component.sync();
-        }
-        return success;
-    }
-
     private static Origin simpleGetLives(PlayerEntity player) {
         OriginComponent component = ModComponents.ORIGIN.get(player);
-        OriginLayer layer = OriginLayers.getLayer(new Identifier("lastlife", "life"));
+        OriginLayer layer = OriginLayers.getLayer(new Identifier("lastlife", "lives"));
 
         return component.getOrigin(layer);
     }
@@ -123,12 +110,6 @@ public class TransferLifeCommand {
         OriginLayer layer = OriginLayers.getLayer(new Identifier("lastlife", "lives"));
         Origin origin = OriginRegistry.get(new Identifier(splitOrigin[0], splitOrigin[1]));
         return hasOrigin(player, layer, origin);
-    }
-
-    private static Origin simpleGetLives(PlayerEntity player, String originId) {
-        OriginComponent component = ModComponents.ORIGIN.get(player);
-        OriginLayer layer = OriginLayers.getLayer(new Identifier("lastlife", "lives"));
-        return component.getOrigin(layer);
     }
 
     private static boolean hasOrigin(PlayerEntity player, OriginLayer layer, Origin origin) {
