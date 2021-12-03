@@ -2,7 +2,7 @@
 	"powers": [
 	],
 	"icon": {
-		"item": "minecraft:air",
+		"item": "minecraft:barrier",
 		"tag": "{CustomModelData: 1}"
 	},
 	"name": "Unset",

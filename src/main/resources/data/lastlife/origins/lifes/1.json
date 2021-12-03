@@ -1,7 +1,6 @@
 {
 	"powers": [
-		"lastlife:lifes/1todeath",
-		"lastlife:aggresive"
+		"lastlife:lifes/1todeath"
 	],
 	"icon": {
 		"item": "minecraft:red_wool",
@@ -9,6 +8,6 @@
 	},
 	"name": "1 Life",
 	"impact": 3,
-	"description": "It's now Kill or Be Killed. Prepare for PvP, traps and all sort of trickeries =)",
+	"description": "$4It's now Kill or Be Killed. Prepare for PvP, traps and all sort of trickeries =)",
 	"unchoosable": true
 }
