@@ -15,7 +15,7 @@ public class StartCommand {
     // public static final Identifier COMMAND_POWER_SOURCE = Apoli.identifier("command");
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        dispatcher.register(literal("startsession")
+        dispatcher.register(literal("startsession").requires(cs -> cs.hasPermissionLevel(2))
                 .executes((command) -> {
                     final ServerCommandSource source = command.getSource();
                     final PlayerEntity sender = source.getPlayer();
@@ -24,6 +24,17 @@ public class StartCommand {
                     return 1;
                 })
         );
+        /*
+        dispatcher.register(literal("testbug")
+                .executes((command) -> {
+                    final ServerCommandSource source = command.getSource();
+                    final PlayerEntity sender = source.getPlayer();
+                    OriginComponent component = ModComponents.ORIGIN.get(sender);
+                    System.out.println(component.getOrigins());
+                    return 1;
+                })
+        );
+        */
     }
 
     private static void grantPower(LivingEntity entity, PowerType<?> power) {

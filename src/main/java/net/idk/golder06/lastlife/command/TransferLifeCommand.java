@@ -44,7 +44,7 @@ public class TransferLifeCommand {
                             } else if (simpleHasLife(sender, "lastlife:lifes/randomizer")) {
                                 command.getSource().sendError(new LiteralText("The game hasn't started yet. Please wait."));
                                 return 0;
-                                */
+                            */
                             } else {
                                 giveLife(sender, target);
                                 command.getSource().sendFeedback(new TranslatableText("commands.lastlife.givelife.success", target.getDisplayName()), true);

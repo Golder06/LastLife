@@ -1,151 +1,238 @@
 {
-  "type": "origins:action_over_time",
-  "rising_action": {
-    "type": "origins:and",
-    "actions": [
-      {
-        "type": "origins:delay",
-        "ticks": 1,
-        "action": {
-          "type": "origins:and",
-          "actions": [
-            {
-              "type": "origins:execute_command",
-              "command": "/tellraw @a {\"text\": \"The Boogeyman is about to be chosen.\", \"color\": \"red\"}"
-            },
-            {
-              "type": "origins:execute_command",
-              "command": "/playsound minecraft:entity.lightning_bolt.thunder weather @a"
-            }
-          ]
-        }
-      },
-      {
-        "type": "origins:delay",
-        "ticks": 201,
-        "action": {
-          "type": "origins:and",
-          "actions": [
-            {
-              "type": "origins:execute_command",
-              "command": "/title @a title {\"text\":\"3\", \"color\": \"green\"}"
-            },
-            {
-              "type": "origins:execute_command",
-              "command": "/playsound minecraft:ui.button.click master @a"
-            }
-          ]
-        }
-      },
-      {
-        "type": "origins:delay",
-        "ticks": 221,
-        "action": {
-          "type": "origins:and",
-          "actions": [
-            {
-              "type": "origins:execute_command",
-              "command": "/title @a title {\"text\":\"2\", \"color\": \"yellow\"}"
-            },
-            {
-              "type": "origins:execute_command",
-              "command": "/playsound minecraft:ui.button.click master @a"
-            }
-          ]
-        }
-      },
-      {
-        "type": "origins:delay",
-        "ticks": 241,
-        "action": {
-          "type": "origins:and",
-          "actions": [
-            {
-              "type": "origins:execute_command",
-              "command": "/title @a title {\"text\":\"1\", \"color\": \"red\"}"
-            },
-            {
-              "type": "origins:execute_command",
-              "command": "/playsound minecraft:ui.button.click master @a"
-            }
-          ]
-        }
-      },
-      {
-        "type": "origins:delay",
-        "ticks": 261,
-        "action": {
-          "type": "origins:and",
-          "actions": [
-            {
-              "type": "origins:execute_command",
-              "command": "/title @a title {\"text\":\"You are...\", \"color\": \"yellow\"}"
-            },
-            {
-              "type": "origins:execute_command",
-              "command": "/playsound lastlife:boogey_tension master @a"
-            }
-          ]
-        }
-      },
-      {
-        "type": "origins:delay",
-        "ticks": 321,
-        "action": {
-          "type": "origins:and",
-          "actions": [
-            {
-              "type": "origins:execute_command",
-              "command": "/tag @r[nbt=!{cardinal_components: {\"origins:origin\": {OriginLayers: [{Origin:\"lastlife:lifes/1\", Layer: \"lastlife:lives\"}]}}}] add boogey"
-            },
-            {
-              "type": "origins:execute_command",
-              "command": "/tag @a[tag=!boogey] add not_boogey"
-            },
-            {
-              "type": "origins:execute_command",
-              "command": "/origin set @a[tag=boogey] lastlife:boogey_l lastlife:boog/boogey"
-            },
-            {
-              "type": "origins:execute_command",
-              "command": "/origin set @a[tag=not_boogey] lastlife:boogey_l lastlife:boog/not_boogey"
-            },
-            {
-              "type": "origins:execute_command",
-              "command": "/title @a[tag=boogey] title {\"text\":\"The Boogeyman.\", \"color\": \"red\"}"
-            },
-            {
-              "type": "origins:execute_command",
-              "command": "/playsound lastlife:the_boogey master @a[tag=boogey]"
-            },
-            {
-              "type": "origins:execute_command",
-              "command": "/title @a[tag=not_boogey] title {\"text\":\"NOT the Boogeyman.\", \"color\": \"green\"}"
-            },
-            {
-              "type": "origins:execute_command",
-              "command": "/playsound lastlife:not_the_boogey master @a[tag=not_boogey]"
-            }
-          ]
-        }
-      },
-      {
-        "type": "origins:delay",
-        "ticks": 421,
-        "action": {
-          "type": "origins:execute_command",
-          "command": "/tellraw @a[tag=boogey] [\"\",{\"text\":\"You are the Boogeyman. You must by any means necessary kill a \",\"color\":\"gray\"},{\"text\":\"green \",\"color\":\"green\"},{\"text\":\"or \",\"color\":\"gray\"},{\"text\":\"yellow \",\"color\":\"yellow\"},{\"text\":\"name by direct action to be cured of the curse. If you fail, next session you will become a \",\"color\":\"gray\"},{\"text\":\"red name\",\"color\":\"red\"},{\"text\":\". All loyalties and friendships are removed while you are the boogeyman.\",\"color\":\"gray\"}]"
-        }
-      },
-      {
-        "type": "origins:delay",
-        "ticks": 430,
-        "action": {
-          "type": "origins:execute_command",
-          "command": "power revoke @s lastlife:grant/boogey_cooldown lastlife:chooseboogey"
-        }
-      }
-    ]
-  },
-  "interval": 1
+	"type": "origins:multiple",
+	"cooldown": {
+		"type": "origins:cooldown",
+		"cooldown": 1000,
+		"hud_render": {
+			"bar_index": 10,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png"
+		}
+	},
+	"trigger": {
+		"type": "origins:action_on_callback",
+		"entity_action_added": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "*:*_cooldown"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/tellraw @a {\"text\": \"The Boogeyman is being chosen in 10 minutes\", \"color\": \"red\"}"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/playsound minecraft:entity.lightning_bolt.thunder weather @a"
+				}
+			]
+			
+		}
+	},
+	"check_timer": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:if_else_list",
+			"actions": [
+				{
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_cooldown",
+						"comparison": "==",
+						"compare_to": 6000
+					},
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/tellraw @a {\"text\": \"The Boogeyman is being chosen in 5 minutes\", \"color\": \"red\"}"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/playsound minecraft:entity.lightning_bolt.thunder weather @a"
+							}
+						]
+					}
+				},
+				{
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_cooldown",
+						"comparison": "==",
+						"compare_to": 1200
+					},
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "/tellraw @a {\"text\": \"The Boogeyman is being chosen in 1 minutes\", \"color\": \"red\"}"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "/playsound minecraft:entity.lightning_bolt.thunder weather @a"
+							}
+						]
+					}
+				},
+				{
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_cooldown",
+						"comparison": "==",
+						"compare_to": 1
+					},
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:delay",
+								"ticks": 1,
+								"action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:execute_command",
+											"command": "/tellraw @a {\"text\": \"The Boogeyman is about to be chosen.\", \"color\": \"red\"}"
+										},
+										{
+											"type": "origins:execute_command",
+											"command": "/playsound minecraft:entity.lightning_bolt.thunder weather @a"
+										}
+									]
+								}
+							},
+							{
+								"type": "origins:delay",
+								"ticks": 201,
+								"action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:execute_command",
+											"command": "/title @a title {\"text\":\"3\", \"color\": \"green\"}"
+										},
+										{
+											"type": "origins:execute_command",
+											"command": "/playsound minecraft:ui.button.click master @a"
+										}
+									]
+								}
+							},
+							{
+								"type": "origins:delay",
+								"ticks": 221,
+								"action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:execute_command",
+											"command": "/title @a title {\"text\":\"2\", \"color\": \"yellow\"}"
+										},
+										{
+											"type": "origins:execute_command",
+											"command": "/playsound minecraft:ui.button.click master @a"
+										}
+									]
+								}
+							},
+							{
+								"type": "origins:delay",
+								"ticks": 241,
+								"action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:execute_command",
+											"command": "/title @a title {\"text\":\"1\", \"color\": \"red\"}"
+										},
+										{
+											"type": "origins:execute_command",
+											"command": "/playsound minecraft:ui.button.click master @a"
+										}
+									]
+								}
+							},
+							{
+								"type": "origins:delay",
+								"ticks": 261,
+								"action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:execute_command",
+											"command": "/title @a title {\"text\":\"You are...\", \"color\": \"yellow\"}"
+										},
+										{
+											"type": "origins:execute_command",
+											"command": "/playsound lastlife:boogey_tension master @a"
+										}
+									]
+								}
+							},
+							{
+								"type": "origins:delay",
+								"ticks": 321,
+								"action": {
+									"type": "origins:and",
+									"actions": [
+										{
+											"type": "origins:execute_command",
+											"command": "/tag @r[nbt=!{cardinal_components: {\"origins:origin\": {OriginLayers: [{Origin:\"lastlife:lifes/1\", Layer: \"lastlife:lives\"}]}}}] add boogey"
+										},
+										{
+											"type": "origins:execute_command",
+											"command": "/tag @a[tag=!boogey] add not_boogey"
+										},
+										{
+											"type": "origins:execute_command",
+											"command": "/origin set @a[tag=boogey] lastlife:boogey_l lastlife:boog/boogey"
+										},
+										{
+											"type": "origins:execute_command",
+											"command": "/origin set @a[tag=not_boogey] lastlife:boogey_l lastlife:boog/not_boogey"
+										},
+										{
+											"type": "origins:execute_command",
+											"command": "/title @a[tag=boogey] title {\"text\":\"The Boogeyman.\", \"color\": \"red\"}"
+										},
+										{
+											"type": "origins:execute_command",
+											"command": "/playsound lastlife:the_boogey master @a[tag=boogey]"
+										},
+										{
+											"type": "origins:execute_command",
+											"command": "/title @a[tag=not_boogey] title {\"text\":\"NOT the Boogeyman.\", \"color\": \"green\"}"
+										},
+										{
+											"type": "origins:execute_command",
+											"command": "/playsound lastlife:not_the_boogey master @a[tag=not_boogey]"
+										}
+									]
+								}
+							},
+							{
+								"type": "origins:delay",
+								"ticks": 421,
+								"action": {
+									"type": "origins:execute_command",
+									"command": "/tellraw @a[tag=boogey] [\"\",{\"text\":\"You are the Boogeyman. You must by any means necessary kill a \",\"color\":\"gray\"},{\"text\":\"green \",\"color\":\"green\"},{\"text\":\"or \",\"color\":\"gray\"},{\"text\":\"yellow \",\"color\":\"yellow\"},{\"text\":\"name by direct action to be cured of the curse. If you fail, next session you will become a \",\"color\":\"gray\"},{\"text\":\"red name\",\"color\":\"red\"},{\"text\":\". All loyalties and friendships are removed while you are the boogeyman.\",\"color\":\"gray\"}]"
+								}
+							},
+							{
+								"type": "origins:delay",
+								"ticks": 422,
+								"action": {
+									"type": "origins:execute_command",
+									"command": "power revoke @s lastlife:grant/boogey_cooldown lastlife:sessionstarting"
+								}
+							}
+						]
+					}
+				}
+			]
+		},
+		"interval": 1
+	}
 }

@@ -15,22 +15,26 @@
 						{
 							"type": "origins:origin",
 							"origin": "lastlife:lifes/1",
-							"layer": "lastlife:lives",
-							"inverted": true
+							"layer": "lastlife:lives"
 						},
 						{
 							"type": "origins:origin",
 							"origin": "lastlife:boog/boogey",
-							"layer": "lastlife:boogey_l",
-							"inverted": true
+							"layer": "lastlife:boogey_l"
 						}
-					]
+					],
+					"inverted": true
 				},
 				{
 					"type": "origins:entity_type",
 					"entity_type": "minecraft:player"
 				}
 			]
+		},
+		"condition": {
+			"type": "origins:origin",
+			"origin": "lastlife:boog/boogey",
+			"layer": "lastlife:boogey_l"
 		}
 	},
 	"projectile": {
@@ -48,22 +52,27 @@
 						{
 							"type": "origins:origin",
 							"origin": "lastlife:lifes/1",
-							"layer": "lastlife:lives",
-							"inverted": true
+							"layer": "lastlife:lives"
 						},
 						{
 							"type": "origins:origin",
 							"origin": "lastlife:boog/boogey",
-							"layer": "lastlife:boogey_l",
-							"inverted": true
+							"layer": "lastlife:boogey_l"
+
 						}
-					]
+					],
+					"inverted": true
 				},
 				{
 					"type": "origins:entity_type",
 					"entity_type": "minecraft:player"
 				}
 			]
+		},
+		"condition": {
+			"type": "origins:origin",
+			"origin": "lastlife:boog/boogey",
+			"layer": "lastlife:boogey_l"
 		}
 	},
 	"name": "Passive",
