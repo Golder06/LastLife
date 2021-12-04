@@ -2,8 +2,7 @@
 	"powers": [
 	],
 	"icon": {
-		"item": "minecraft:shield",
-		"tag": "{CustomModelData: 1}"
+		"item": "minecraft:shield"
 	},
 	"name": "Not the Boogeyman",
 	"description": "You're safe... For now. Be careful and try not to get killed by the Boogeyman this session ;)",

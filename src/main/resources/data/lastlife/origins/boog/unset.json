@@ -2,8 +2,7 @@
 	"powers": [
 	],
 	"icon": {
-		"item": "minecraft:barrier",
-		"tag": "{CustomModelData: 1}"
+		"item": "minecraft:barrier"
 	},
 	"name": "Unset",
 	"description": "The Boogeyman curse hasn't been set on anyone yet. Please be patient, you'll know if you are cursed soon enough ;)"

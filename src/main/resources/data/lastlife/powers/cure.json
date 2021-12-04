@@ -5,7 +5,7 @@
 		"actions": [
 			{
 				"type": "origins:execute_command",
-				"command": "/origin set @s lastlife:boogey_l lastlife:cured"
+				"command": "/origin set @s lastlife:boogey_l lastlife:boog/cured"
 			},
 			{
 				"type": "origins:execute_command",

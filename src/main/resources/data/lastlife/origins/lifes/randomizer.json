@@ -8,6 +8,6 @@
 		"tag": "{CustomModelData: 1}"
 	},
 	"name": "Unset",
-	"description": "The amount of lifes hasn't been set yet. Please wait until the moderator decides to starts the game (or the countdown stops).",
+	"description": "If you're seeing this, something wrong has happened or you used a command that you shouldn't have. Please contact Golder06 about it-",
 	"unchoosable": true
 }

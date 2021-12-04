@@ -2,8 +2,7 @@
 	"powers": [
 	],
 	"icon": {
-		"item": "minecraft:poppy",
-		"tag": "{CustomModelData: 1}"
+		"item": "minecraft:poppy"
 	},
 	"name": "Cured",
 	"description": "You have taken a life and have been cured from the Boogeyman's Curse. You can now rest until the next session.",
